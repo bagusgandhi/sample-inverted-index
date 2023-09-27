@@ -27,6 +27,9 @@ async function createInvertedIndex(contents: Record<string, string>) {
 
     }
 
+    // log data result inverted index
+    console.log(data);
+
     const result = JSON.stringify(Object.fromEntries(data));
 
     // write as file to see theresult
@@ -70,7 +73,9 @@ async function queryTopFive(query: string, invertedIndexResult: any): Promise<Ar
 async function process() {
     const invertedIndex = await createInvertedIndex(contents);
 
-    const query = 'okay';
+    // query search
+    const query = 'trees';
+
     const result = await queryTopFive(query, JSON.parse(invertedIndex));
 
     console.log('query  search: ', query);
